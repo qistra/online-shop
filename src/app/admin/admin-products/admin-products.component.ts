@@ -9,8 +9,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./admin-products.component.css']
 })
 export class AdminProductsComponent implements OnInit, OnDestroy {
-  products: Product[];
-  filteredProducts: Product[];
+  products: any[];
+  filteredProducts: any[];
   subscription: Subscription;
 
   constructor(private productService: ProductService) { }

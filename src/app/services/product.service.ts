@@ -11,8 +11,8 @@ export class ProductService {
 
   getAll() {
     return this.db.list('/products')
-      .snapshotChanges().pipe(map(product => {
-        return product.map(p => ({ key: p.payload.key, ...p.payload.val() as Object }))
+      .snapshotChanges().pipe(map(products => {
+        return products.map(p => ({ key: p.payload.key, ...p.payload.val() as Object }))
       }));
   }
 
