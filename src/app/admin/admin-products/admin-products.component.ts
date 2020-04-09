@@ -36,10 +36,16 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  filter(query: string) {
-    this.filteredProducts = query ? 
-      this.products.filter(p => p.title.toLowerCase().includes(query.toLowerCase()) ) : 
-      this.products;
+  // filter(query: string) {
+  //   this.filteredProducts = query ? 
+  //     this.products.filter(p => p.title.toLowerCase().includes(query.toLowerCase()) ) : 
+  //     this.products;
+  // }
+
+  filter(event: Event) {
+    const searchText = (event.target as HTMLInputElement).value;
+    console.log(searchText);
+    this.dataSource.filter = searchText.trim().toLowerCase();
   }
 
 }

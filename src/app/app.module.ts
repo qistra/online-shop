@@ -31,6 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatInputModule } from '@angular/material/input';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { MatSortModule } from '@angular/material/sort';
     BrowserModule,
     CustomFormsModule,
     FormsModule,
+    // MatFormFieldModule,
+    MatInputModule,
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
@@ -67,7 +71,8 @@ import { MatSortModule } from '@angular/material/sort';
     AdminAuthGuard,
     CategoryService,
     ProductService,
-    UserService
+    UserService,
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
   ],
   bootstrap: [AppComponent]
 })

@@ -1,9 +1,13 @@
 <p>
     <a class="btn btn-primary" routerLink="/admin/products/new">New Product</a>
 </p>
-<p>
+<!-- <p>
     <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Searching ...">
-</p>
+</p> -->
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="filter($event)" placeholder="Searching ...">
+</mat-form-field>
 <div class="mat-elevation-z8">
     <table mat-table matSort [dataSource]="dataSource">
         <ng-container matColumnDef="index">
