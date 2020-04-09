@@ -4,6 +4,7 @@ import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-admin-products',
@@ -18,6 +19,7 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['index', 'title', 'price', 'edit'];
   dataSource: MatTableDataSource<any>;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor(private productService: ProductService) { }
 
@@ -26,6 +28,7 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
       this.filteredProducts = this.products = products;
       this.dataSource  = new MatTableDataSource(this.filteredProducts);
       this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
   }
 
