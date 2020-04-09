@@ -18,17 +18,19 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
 
   displayedColumns: string[] = ['index', 'title', 'price', 'edit'];
   dataSource: MatTableDataSource<Product>;
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
     this.subscription = this.productService.getAll().subscribe(products => {
       this.filteredProducts = this.products = products;
-      this.dataSource  = new MatTableDataSource(this.filteredProducts);
+      this.dataSource = new MatTableDataSource(this.filteredProducts);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.dataSource.filterPredicate = (data: Product, filter: string) =>
+        (data.title + data.price).toLowerCase().includes(filter.toLowerCase());
     });
   }
 
