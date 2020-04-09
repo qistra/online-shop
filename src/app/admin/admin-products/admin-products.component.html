@@ -4,6 +4,8 @@
 <p>
     <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Searching ...">
 </p>
+
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -14,7 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let p of filteredProducts">
+        <tr *ngFor="let p of filteredProducts; index as i">
             <th scope="row">{{i + 1}}</th>
             <td>{{p.title}}</td>
             <td>{{p.price | currency:'USD':true}}</td>
