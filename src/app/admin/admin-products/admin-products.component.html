@@ -5,7 +5,7 @@
     <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Searching ...">
 </p>
 <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="index">
             <th mat-header-cell *matHeaderCellDef>#</th>
             <td mat-cell *matCellDef="let i = index">{{ i + 1}}</td>
