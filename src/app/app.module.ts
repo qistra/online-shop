@@ -29,6 +29,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductService } from './services/product.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { MatTableModule } from '@angular/material/table';
     BrowserModule,
     CustomFormsModule,
     FormsModule,
+    MatPaginatorModule,
     MatTableModule,
     NgbModule,
   ],

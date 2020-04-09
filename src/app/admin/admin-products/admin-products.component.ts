@@ -1,8 +1,9 @@
 import { Product } from './../../models/product';
 import { ProductService } from './../../services/product.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-admin-products',
@@ -15,8 +16,8 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
   subscription: Subscription;
 
   displayedColumns: string[] = ['index', 'title', 'price', 'edit'];
-  // displayedColumns: string[] = [ 'title', 'price'];
   dataSource: MatTableDataSource<any>;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   constructor(private productService: ProductService) { }
 
@@ -24,6 +25,7 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
     this.subscription = this.productService.getAll().subscribe(products => {
       this.filteredProducts = this.products = products;
       this.dataSource  = new MatTableDataSource(this.filteredProducts);
+      this.dataSource.paginator = this.paginator;
     });
   }
 
