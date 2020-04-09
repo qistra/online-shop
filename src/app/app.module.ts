@@ -27,6 +27,8 @@ import { LoginComponent } from './login/login.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { FormsModule } from '@angular/forms';
 import { ProductService } from './services/product.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -44,22 +46,24 @@ import { ProductService } from './services/product.service';
     ProductFormComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    NgbModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    CustomFormsModule,
     FormsModule,
-    CustomFormsModule
+    MatTableModule,
+    NgbModule,
   ],
   providers: [
     AuthService,
     AuthGuard,
     AdminAuthGuard,
-    UserService,
     CategoryService,
-    ProductService
+    ProductService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
