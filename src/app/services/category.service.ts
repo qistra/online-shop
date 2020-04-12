@@ -12,7 +12,7 @@ export class CategoryService {
   getAll() {
     return this.db.list('/categories', ref => ref.orderByChild('name'))
       .snapshotChanges().pipe(map(category => {
-        return category.map(c => ({key: c.payload.key, ...c.payload.val()}))
+        return category.map(c => ({key: c.payload.key, ...c.payload.val() as Object}))
       }));
   }
 }
