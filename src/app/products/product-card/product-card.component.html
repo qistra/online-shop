@@ -1,0 +1,8 @@
+<div class="card" style="width: 15rem;">
+    <img [src]="p.imageUrl" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{p.title}}</h5>
+        <h6>{{p.category}}</h6>
+        <p class="card-text">{{p.price | currency:'USD':true}}</p>
+    </div>
+</div>

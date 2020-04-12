@@ -33,7 +33,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
-import { ProductCategoriesComponent } from './product-categories/product-categories.component';
+import { ProductCategoriesComponent } from './products/product-categories/product-categories.component';
+import { ProductCardComponent } from './products/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ProductCategoriesComponent } from './product-categories/product-categor
     AdminOrdersComponent,
     LoginComponent,
     ProductFormComponent,
-    ProductCategoriesComponent
+    ProductCategoriesComponent,
+    ProductCardComponent
   ],
   imports: [
     AppRoutingModule,
